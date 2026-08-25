@@ -31,7 +31,7 @@ res.end()
 <body>
 <form action ="/submit" method = "post">
 <input type="text" placeholder = "Enter Your Full name" name ="name"/> <br/>
-<input type="email" placeholder = "Enter Your email"name ="eamil"/> <br />
+<input type="email" placeholder = "Enter Your email"name ="email"/> <br />
 <textarea placeholder = "Enter Your message" name ="message"> </textarea> <br/>
 <button> send Message</button>
 </form>
