@@ -1,27 +1,26 @@
-const express =  require("express")
 
-const app = express()
- let fullname = prashis ;
 
-const mymiddleware = (req, res, next)=>{
-   
-    if (req.query.fullname  ) {
-        next()
+const express = require("express");
+
+const app = express();
+
+// Middleware
+const getmiddleware = (req, res, next) => {
+    const name = req.query.name;
+
+    if (!name) {
+        res.send("Enter Your full name..");
     } else {
-        res.send("Please Enter Your name")
+        next();
     }
+};
 
-}
+// Route
+app.get("/", getmiddleware, (req, res) => {
+    res.send(`Hello, ${req.query.name}`);
+});
 
-// app.use(mymiddleware)
-
-app.get("/", mymiddleware, (req,  res)=>{
-res.send(`hello, ${fullname}`)
-})
-
-app.listen(4000, ()=>{
-    console.log("Server is running in 4000 port")
-})
-
-
-
+// Start server
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
+});
